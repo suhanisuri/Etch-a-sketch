@@ -1,0 +1,42 @@
+body{
+    background-color:pink;
+}
+#page{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+#container{
+    width:700px;
+    height:700px;
+    display:flex;
+    flex-wrap:wrap;
+    border:1px solid black;
+    justify-content:center;
+    align-items:center;
+}
+h1{
+    font-family: "Fredericka the Great";
+    color:black;
+}
+#sub{
+    display:flex;
+}
+
+input{
+    border-radius:8px;
+    margin:10px;
+    padding:5px;
+    width:60px;
+    background-color:black;
+    color:white;
+}
+.square{
+    box-sizing:border-box;
+    border:1px solid gray;
+}
+
+
+
