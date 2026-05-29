@@ -1,7 +1,7 @@
 const container=document.querySelector("#container");
 
 const input=document.getElementById("userinput");
-let num;
+let num,mode;
 function createGrid(size){
     container.innerHTML="";
     const squareSize=700/size;
@@ -10,11 +10,28 @@ function createGrid(size){
         square.classList.add("square");
         square.style.width=`${squareSize}px`;
         square.style.height=`${squareSize}px`;
-
+        square.dataset.opacity=0;
         square.addEventListener("mouseenter",()=>{
-            square.style.backgroundColor="black";
-    });
-    container.appendChild(square);
+            if(mode==="bnw"){
+                square.style.backgroundColor="black";
+            }
+            if(mode==="rainbow"){
+                const r=Math.floor(Math.random()*256);
+                const g=Math.floor(Math.random()*256);
+                const b=Math.floor(Math.random()*256);
+                square.style.backgroundColor=`rgb(${r},${g},${b})`;
+            }
+            if(mode=="opacity"){
+
+                let currentOpacity=Number(square.dataset.opacity);
+                if(currentOpacity<1){
+                    currentOpacity+=0.1;
+                    square.dataset.opacity=currentOpacity;
+                }
+                square.style.backgroundColor=`rgba(0,0,0,${currentOpacity})`;
+            }
+        });
+        container.appendChild(square);
 }}
 
 input.addEventListener("keydown",function(event){
@@ -28,4 +45,20 @@ input.addEventListener("keydown",function(event){
         }
     }
 });
+
+const bnw=document.querySelector("#bw");
+bnw.addEventListener("click",()=>{
+    mode="bnw";
+});
+
+const rainbow=document.querySelector("#rainbow");
+rainbow.addEventListener("click",()=>{
+    mode="rainbow";
+});
+
+const opacity=document.querySelector("#opacity");
+opacity.addEventListener("click",()=>{
+    mode="opacity";
+});
+
 

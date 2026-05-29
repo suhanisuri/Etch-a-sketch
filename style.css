@@ -17,12 +17,16 @@ body{
     justify-content:center;
     align-items:center;
 }
-h1{
+h2{
     font-family: "Fredericka the Great";
     color:black;
 }
 #sub{
     display:flex;
+}
+#sub2{
+    display:flex;
+    align-items:center;
 }
 
 input{
@@ -38,5 +42,12 @@ input{
     border:1px solid gray;
 }
 
+button{
+
+    height:50px;
+    border-radius:10px;
+    margin:5px;
+    
+}
 
 
